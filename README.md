@@ -12,7 +12,7 @@ This role takes care of:
 * Setting up Traefik as the reverse proxy, with SSL termination and proper routing
 * Making sure everything runs smoothly on RedHat
 
-Tested on:
+(Not yet) Tested on:
 * RedHat
 
 Before you dive in, make sure you have:
