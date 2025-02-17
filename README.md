@@ -4,17 +4,16 @@
 
 Welcome to my Ansible role for setting up the *arr suite (Radarr, Sonarr, and more) using Docker and Traefik as the reverse proxy. This role automates the whole process, so you can spend less time configuring and more time managing your media!
 
-## What's Included?
+## What does it do?
 
 This role takes care of:
 * Deploying the *arr suite of services (Radarr, Sonarr, etc.) in Docker containers
 * Installing Plex Media Server in a Docker container
 * Setting up Traefik as the reverse proxy, with SSL termination and proper routing
-* Making sure everything runs smoothly on RedHat and Ubuntu 22.04
+* Making sure everything runs smoothly on RedHat
 
 Tested on:
 * RedHat
-* Ubuntu 22.04
 
 Before you dive in, make sure you have:
 
@@ -30,7 +29,8 @@ Super simple to get started. Just include the role in your playbook:
 
 ```yaml
 ---
-- hosts: all
+- name: Deploy arr_suite
+  hosts: all
   become: yes
   roles:
     - role: okranix.arr_suite
@@ -40,7 +40,8 @@ If you want to configure the services (like ports, paths, or additional *arr app
 
 ```yaml
 ---
-- hosts: all
+- name: Deploy arr_suite
+  hosts: all
   become: yes
   roles:
     - role: okranix.arr_suite
@@ -62,10 +63,9 @@ Below is a table describing the key variables you can customize to fit your envi
 | arr_domain                 | mydomain.com               | Domain to use for Traefik routing                                    |      |      |      |      |      |      |      |
 | arr_acme_email             | ""                         | Email for Let's Encrypt ACME SSL certificates                        |      |      |      |      |      |      |      |
 | arr_plex_package_name      | plex-media-server-plexpass | Plex package name (adjust if using a different Plex version)         |      |      |      |      |      |      |      |
-| arr_archlinux_aur_helper   | yay                        | AUR helper to use on Arch Linux for installing packages              |      |      |      |      |      |      |      |
 | arr_media_folder	| /mnt/media	| Default path where media files will be stored. The role creates a `downloads` folder for downloaded content and a `library` folder with subfolders `tv`, `comics`, and `movies` for the organized media files. |
 | arr_download_folder	| /opt/downloads	| Default path where media files will be downloaded. The role creates a `downloads` folder for downloaded content and a `trascode` subfolder for the transcode files. |
-| arr_plex_claim                 | NO DEFAULT, must be set manually               | plex claim token                                     |      |      |      |      |      |      |      |
+| arr_plex_claim                 | secret in vault               | plex claim token                                     |      |      |      |      |      |      |      |
 
 
 
