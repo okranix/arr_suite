@@ -53,19 +53,19 @@ If you want to configure the services (like ports, paths, or additional *arr app
 
 Below is a table describing the key variables you can customize to fit your environment:
 
-| **Variable**               | **Default Value**          | **Description**                                                      | **** | **** | **** | **** | **** | **** | **** |
-| -------------------------- | -------------------------- | -------------------------------------------------------------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| arr_containers_service     | See example below          | List of services and their states (started, stopped, or absent)      |      |      |      |      |      |      |      |
-| arr_containers_service_uid | 1000                       | User ID to run the services under (UID for the container processes)  |      |      |      |      |      |      |      |
-| arr_containers_service_gid | 1000                       | Group ID to run the services under (GID for the container processes) |      |      |      |      |      |      |      |
-| arr_traefik_version        | "3.1"                      | Version of Traefik to install                                        |      |      |      |      |      |      |      |
-| arr_timezone               | Europe/Zurich                | Timezone for the containers                                          |      |      |      |      |      |      |      |
-| arr_domain                 | mydomain.com               | Domain to use for Traefik routing                                    |      |      |      |      |      |      |      |
-| arr_acme_email             | ""                         | Email for Let's Encrypt ACME SSL certificates                        |      |      |      |      |      |      |      |
-| arr_plex_package_name      | plex-media-server-plexpass | Plex package name (adjust if using a different Plex version)         |      |      |      |      |      |      |      |
+| **Variable**               | **Default Value**          | **Description**                                                      |
+| -------------------------- | -------------------------- | -------------------------------------------------------------------- |
+| arr_containers_service     | See example below          | List of services and their states (started, stopped, or absent)      |
+| arr_containers_service_uid | 1000                       | User ID to run the services under (UID for the container processes)  |
+| arr_containers_service_gid | 1000                       | Group ID to run the services under (GID for the container processes) |
+| arr_traefik_version        | "3.1"                      | Version of Traefik to install                                        |
+| arr_timezone               | Europe/Zurich                | Timezone for the containers                                        |
+| arr_domain                 | mydomain.com               | Domain to use for Traefik routing                                    |
+| arr_acme_email             | ""                         | Email for Let's Encrypt ACME SSL certificates                        |
+| arr_plex_package_name      | plex-media-server-plexpass | Plex package name (adjust if using a different Plex version)         |
 | arr_media_folder	| /mnt/media	| Default path where media files will be stored. The role creates a `downloads` folder for downloaded content and a `library` folder with subfolders `tv`, `comics`, and `movies` for the organized media files. |
 | arr_download_folder	| /opt/downloads	| Default path where media files will be downloaded. The role creates a `downloads` folder for downloaded content and a `trascode` subfolder for the transcode files. |
-| arr_plex_claim                 | secret in vault               | plex claim token                                     |      |      |      |      |      |      |      |
+| arr_plex_claim                 | secret in vault               | plex claim token                                     |
 
 
 
