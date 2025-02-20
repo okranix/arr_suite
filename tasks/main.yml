@@ -1,6 +1,6 @@
 ---
 - name: Install pre-requisites on RedHat
-  ansible.builtin.include_tasks: prerequisites/RedHat.yml
+  ansible.builtin.include_tasks: prerequisites/redhat.yml
   when: ansible_facts['os_family'] == "RedHat"
 
 - name: Setup reverse proxy
