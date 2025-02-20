@@ -117,6 +117,10 @@
       UID: "{{ arr_containers_service_uid }}"
       GID: "{{ arr_containers_service_gid }}"
       TZ: "{{ arr_timezone }}"
+    ports:
+      - 8096:8096
+    devices:
+      - /dev/dri:/dev/dri
     labels:
       traefik.http.services.emby.loadbalancer.server.port: "8096"
       traefik.enable: "true"
