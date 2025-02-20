@@ -108,11 +108,12 @@
     restart_policy: always
     log_driver: syslog
     network_mode: host
+    exposed_ports:
+      - "8096"
     volumes:
       - "{{ arr_media_folder }}/config/emby:/config"
       - "{{ arr_media_folder }}/movies:/movies"
       - "{{ arr_media_folder }}/tv:/tv"
-      - "{{ arr_download_folder }}/transcode:/transcode"
     env:
       UID: "{{ arr_containers_service_uid }}"
       GID: "{{ arr_containers_service_gid }}"
