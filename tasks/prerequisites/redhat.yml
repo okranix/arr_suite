@@ -1,5 +1,5 @@
 ---
 - name: Install pre-requisites on RedHat
   ansible.builtin.dnf:
-    name: python3-requests
+    name: python3.12-requests
     state: present
