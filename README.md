@@ -8,7 +8,7 @@ Welcome to my Ansible role for setting up the *arr suite (Radarr, Sonarr, and mo
 
 This role takes care of:
 * Deploying the *arr suite of services (Radarr, Sonarr, etc.) in Docker containers
-* Installing Plex Media Server in a Docker container
+* Installing Emby in a Docker container
 * Setting up Traefik as the reverse proxy, with SSL termination and proper routing
 * Making sure everything runs smoothly on RedHat
 
@@ -62,11 +62,8 @@ Below is a table describing the key variables you can customize to fit your envi
 | arr_timezone               | Europe/Zurich                | Timezone for the containers                                        |
 | arr_domain                 | mydomain.com               | Domain to use for Traefik routing                                    |
 | arr_acme_email             | ""                         | Email for Let's Encrypt ACME SSL certificates                        |
-| arr_plex_package_name      | plex-media-server-plexpass | Plex package name (adjust if using a different Plex version)         |
 | arr_media_folder	| /mnt/media	| Default path where media files will be stored. The role creates a `downloads` folder for downloaded content and a `library` folder with subfolders `tv`, `comics`, and `movies` for the organized media files. |
 | arr_download_folder	| /opt/downloads	| Default path where media files will be downloaded. The role creates a `downloads` folder for downloaded content and a `trascode` subfolder for the transcode files. |
-| arr_plex_claim                 | secret in vault               | plex claim token                                     |
-
 
 
 ### Example for `arr_containers_service`
@@ -85,8 +82,6 @@ arr_containers_service:
     state: absent
   - name: qbittorrent
     state: absent
-  - name: tautulli
-    state: started
   - name: overseerr
     state: started
   - name: kavita
@@ -106,10 +101,10 @@ Here’s a quick rundown of the services you can configure with this role, along
 * [Bazarr](https://www.bazarr.media/): A companion to Radarr and Sonarr, used for managing subtitles.
 * [Calibre-Web](https://github.com/janeczku/calibre-web): A web-based ebook library manager, a nice addition for managing ebooks.
 * [qBittorrent](https://www.qbittorrent.org/): An open-source BitTorrent client that handles downloading files. Often used as the download client for *arr apps.
-* [Tautulli](https://tautulli.com/): A monitoring and tracking tool for Plex, showing what’s being watched and keeping logs.
 * [Overseerr](https://overseerr.dev/): A request management and media discovery tool for the *arr suite, enabling users to request media.
 * [Kavita](https://www.kavitareader.com/): A self-hosted digital library for managing comic and manga collections.
 * [Mylar3](https://github.com/mylar3/mylar3): A media manager for comic books, providing automated downloads similar to Radarr/Sonarr.
+* [Emby](https://emby.media/): Media server similar to Plex
 
 ## Running tests
 

@@ -10,8 +10,6 @@ arr_containers_service:
     state: started
   - name: calibre-web
     state: absent
-  - name: tautulli
-    state: started
   - name: overseerr
     state: started
   - name: kavita
@@ -26,7 +24,5 @@ arr_timezone: Europe/Zurich
 arr_domain: mydomain.com
 arr_acme_email: ""
 arr_plex_package_name: plex-media-server-plexpass
-arr_archlinux_aur_helper: yay
 arr_media_folder: /mnt/media
-arr_plex_version: "docker"
 arr_download_folder: /opt/downloads
